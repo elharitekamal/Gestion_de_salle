@@ -11,6 +11,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
+                @if((Auth::user()->role == '0'))
+                <li class="nav-item">
+                    <a class="nav-link" href="dash">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="orders">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="abonnements">Abonnements</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout">Logout</a>
+                </li>
+                @else
                 <li class="nav-item active">
                     <a class="nav-link" href="home">Home</a>
                 </li>
@@ -41,6 +55,9 @@
                     <a class="nav-link" href="login">Login</a>
                 </li>
                 @endauth
+
+
+                @endif
             </ul>
         </div>
     </div>

@@ -23,6 +23,18 @@
     <div class="container mt-5 mb-5">
         <div class="cartt d-flex justify-content-center row">
             <div class="col-md-8">
+                @if (session('message'))
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">
+                        {{
+         
+    session('message') }}</h4>
+
+                </div>
+                @endif
+
+
+
                 <div class="p-2">
                     <h4 class="text-light">Shopping cart</h4>
                 </div>

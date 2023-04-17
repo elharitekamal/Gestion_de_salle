@@ -86,4 +86,10 @@ class PagesController extends Controller
 
     }
 
+    public function orders()
+    {
+        $orders = Orders::all();
+        return view('orders', ['orders' => $orders]);
+    }
+
 }

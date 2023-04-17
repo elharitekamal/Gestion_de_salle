@@ -10,7 +10,7 @@ class StripeController extends Controller
 {
     public function checkout()
     {
-        return redirect('meals')->with('message', 'payments Failed');
+        return redirect('card')->with('message', 'payments Failed');
     }
 
     public function session($price)
@@ -54,6 +54,6 @@ class StripeController extends Controller
             $order->save();
         }
         Card::truncate();
-        return redirect('meals')->with('message', 'Payment succed. We will contact you soon');
+        return redirect('card')->with('message', 'Payment succed. We will contact you soon');
     }
 }

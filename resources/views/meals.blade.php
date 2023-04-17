@@ -43,6 +43,15 @@
 
 
 
+            @if (session('message'))
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">
+                    {{ session('message') }}</h4>
+
+            </div>
+            @endif
+
+
 
 
             <div class="row">

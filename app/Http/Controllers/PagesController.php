@@ -7,6 +7,7 @@ use App\Models\Offers;
 use App\Models\Card;
 use App\Models\Catmeals;
 use App\Models\Catoffers;
+use App\Models\Orders;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -81,6 +82,8 @@ class PagesController extends Controller
         $prods = Card::Where('phone', $user->phone)->get();
         $count = Card::Where('phone', $user->phone)->count();
         return view('card', ['count' => $count, 'prods' => $prods, 'total' => $total]);
+
+
     }
 
 }

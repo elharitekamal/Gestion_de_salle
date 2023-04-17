@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Card;
+use App\Models\Orders;
 
 class StripeController extends Controller
 {
     public function checkout()
     {
-        return view('checkout');
+        return redirect('meals')->with('message', 'payments Failed');
     }
 
-    public function session()
+    public function session($price)
     {
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
 
@@ -20,11 +21,11 @@ class StripeController extends Controller
             'line_items' => [
                 [
                     'price_data' => [
-                        'currency' => 'gbp',
+                        'currency' => 'usd',
                         'product_data' => [
-                            'name' => 'gimme money!!!!',
+                            'name' => 'You need to pay',
                         ],
-                        'unit_amount' => 500,
+                        'unit_amount' => $price * 100,
                     ],
                     'quantity' => 1,
                 ],
@@ -39,8 +40,20 @@ class StripeController extends Controller
 
     public function success()
     {
+        $cards = Card::all();
 
+        foreach ($cards as $card) {
+            $order = new Orders;
+            $order->product_name = $card->product_name;
+            $order->phone = $card->phone;
+            $order->adress = $card->adress;
+            $order->quantity = $card->quantity;
+            $order->price = $card->price;
+            $order->updated_at = $card->updated_at;
+            $order->created_at = $card->created_at;
+            $order->save();
+        }
         Card::truncate();
-        return "Yay, It works!!!";
+        return redirect('meals')->with('message', 'Payment succed. We will contact you soon');
     }
 }

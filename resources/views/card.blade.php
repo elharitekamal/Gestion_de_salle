@@ -44,7 +44,7 @@
                 @endforeach
 
                 <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
-                    <form action="session" method="POST">
+                    <form action="session/{{$total}}" method="POST">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <button class="btn btn-success btn-block btn-lg ml-2 pay-button" type="submit">Pay Now
                             {{$total}}$</button>

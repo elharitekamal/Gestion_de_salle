@@ -12,19 +12,12 @@ return new class extends Migration {
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('product_name');
+            $table->string('phone');
+            $table->string('adress');
+            $table->string('quantity');
             $table->string('price');
-            $table->string('image');
-            $table->string('decription');
             $table->timestamps();
-            $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-            $table->unsignedBigInteger('id_meal');
-            $table->foreign('id_meal')->references('id')->on('meals')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
         });
     }
 

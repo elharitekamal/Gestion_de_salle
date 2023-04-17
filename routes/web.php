@@ -28,7 +28,9 @@ Route::get('offers', [PagesController::class, 'offers']);
 Route::post('signup', [UserController::class, 'signup']);
 Route::post('signin', [UserController::class, 'signin']);
 Route::get('logout', [UserController::class, 'logout']);
+Route::get('card', [PagesController::class, 'card'])->middleware(['auth', 'auth:web']);
 Route::post('addcard/{id}', [CardController::class, 'addcard'])->middleware(['auth', 'auth:web']);
+Route::get('deletecard/{id}', [CardController::class, 'deletecard'])->middleware(['auth', 'auth:web']);
 
 
 

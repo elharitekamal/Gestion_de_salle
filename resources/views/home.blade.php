@@ -12,11 +12,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.9.95/css/materialdesignicons.css"
         rel="stylesheet">
 
+
 </head>
+@include('navbar')
 
-<body>
+<body style="background-color: #000000">
 
-    @include('navbar')
+
 
     <header>
 
@@ -75,7 +77,8 @@
                 <div class="col-lg-6">
                     <div class="section-title">
                         <h2>What We Do</h2>
-                        <p>I design and develop services for customers of all sizes, specializing in creating stylish,
+                        <p class="text-light">I design and develop services for customers of all sizes,
+                            specializing in creating stylish,
                             modern websites</p>
                     </div>
                 </div>
@@ -83,7 +86,7 @@
             <div class="row">
                 <!-- feaure box -->
                 <div class="col-sm-6 col-lg-4">
-                    <div class="feature-box-1">
+                    <div class="bg-light feature-box-1">
                         <div class="icon">
                             <i class="fa fa-desktop"></i>
                         </div>
@@ -97,7 +100,7 @@
                 <!-- / -->
                 <!-- feaure box -->
                 <div class="col-sm-6 col-lg-4">
-                    <div class="feature-box-1">
+                    <div class="bg-light feature-box-1">
                         <div class="icon">
                             <i class="fa fa-user"></i>
                         </div>
@@ -111,7 +114,7 @@
                 <!-- / -->
                 <!-- feaure box -->
                 <div class="col-sm-6 col-lg-4">
-                    <div class="feature-box-1">
+                    <div class="bg-light feature-box-1">
                         <div class="icon">
                             <i class="fa fa-comment"></i>
                         </div>
@@ -125,7 +128,7 @@
                 <!-- / -->
                 <!-- feaure box -->
                 <div class="col-sm-6 col-lg-4">
-                    <div class="feature-box-1">
+                    <div class="bg-light feature-box-1">
                         <div class="icon">
                             <i class="fa fa-image"></i>
                         </div>
@@ -139,7 +142,7 @@
                 <!-- / -->
                 <!-- feaure box -->
                 <div class="col-sm-6 col-lg-4">
-                    <div class="feature-box-1">
+                    <div class="bg-light feature-box-1">
                         <div class="icon">
                             <i class="fa fa-th"></i>
                         </div>
@@ -152,8 +155,8 @@
                 </div>
                 <!-- / -->
                 <!-- feaure box -->
-                <div class="col-sm-6 col-lg-4">
-                    <div class="feature-box-1">
+                <div class=" col-sm-6 col-lg-4">
+                    <div class="bg-light feature-box-1">
                         <div class="icon">
                             <i class="fa fa-cog"></i>
                         </div>
@@ -174,6 +177,9 @@
             <div class="col-lg-6">
                 <div class="section-title">
                     <h2>Our Coaches</h2>
+                    <p class="text-light">I design and develop services for customers of all sizes,
+                        specializing in creating stylish,
+                        modern websites</p>
 
                 </div>
             </div>

@@ -59,7 +59,7 @@
                             <p class="small text-muted mb-0">{{$meal->category}}
                             </p>
                             <h6 style="text-align: center;">{{$meal->price}}$</h6>
-                            <form action="" method="POST">
+                            <form action="addcard/{{$meal->id}}" method="POST">
                                 @csrf
                                 <input type="number" value="1" min="1" class="form-control" style="width=100px;"
                                     name="quantity">

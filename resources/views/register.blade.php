@@ -55,6 +55,16 @@
                                         <label class="form-label" for="typeEmailX">Height</label>
                                     </div>
                                     <div class="form-outline form-white mb-4">
+                                        <input type="text" name="adress" id="typeEmailX"
+                                            class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeEmailX">Adress</label>
+                                    </div>
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="number" name="phone" id="typeEmailX"
+                                            class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeEmailX">Phone</label>
+                                    </div>
+                                    <div class="form-outline form-white mb-4">
                                         <input type="password" name="password" id="typePasswordX"
                                             class="form-control form-control-lg" />
                                         <label class="form-label" for="typePasswordX">Password</label>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Card;
 
 class StripeController extends Controller
 {
@@ -38,6 +39,8 @@ class StripeController extends Controller
 
     public function success()
     {
+
+        Card::truncate();
         return "Yay, It works!!!";
     }
 }

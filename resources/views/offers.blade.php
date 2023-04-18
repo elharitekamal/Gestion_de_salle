@@ -64,7 +64,7 @@
         </div>
         <!-- End -->
 
-        
+
         <div class="row">
             @foreach($offers as $offer)
             <div class="col-lg-4 col-md-12 mb-4">
@@ -84,29 +84,37 @@
                                 fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
                                 <path
                                     d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
-                            </svg> Cras justo odio</li>
+                            </svg> The gym offer provides a wide range.</li>
                         <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
                                 <path
                                     d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
-                            </svg> Dapibus ac facilisis in</li>
+                            </svg> The professional and experienced trainers offer.</li>
                         <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
                                 <path
                                     d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
-                            </svg> Vestibulum at eros</li>
+                            </svg> The affordable pricing and flexible membership.</li>
                     </ul>
                     <div class="card-body text-center">
-                        <button class="btn btn-outline-primary btn-lg" style="border-radius:30px">Select</button>
+                        <form action="payforoffer/{{$offer->price}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id_offer" value="{{$offer->id}}">
+                            <button type="submit" class="btn btn-outline-primary btn-lg" style="border-radius:30px">Pay
+                                it
+                            </button>
+                        </form>
                     </div>
+
+
                 </div>
             </div>
 
-@endforeach
+            @endforeach
         </div>
-                  
 
-        
+
+
 
 
     </div>

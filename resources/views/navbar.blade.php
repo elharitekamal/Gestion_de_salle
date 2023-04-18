@@ -11,6 +11,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
+                @if((Auth::user()))
                 @if((Auth::user()->role == '0'))
                 <li class="nav-item">
                     <a class="nav-link" href="dash">Dashboard</a>
@@ -19,11 +20,50 @@
                     <a class="nav-link" href="orders">Orders</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="abonnements">Abonnements</a>
+                    <a class="nav-link" href="abonnement">Abonnements</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout">Logout</a>
                 </li>
+                @else
+                <li class="nav-item active">
+                    <a class="nav-link" href="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profil">Profil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="offers">Offers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="meals">Meals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact">Contact</a>
+                </li>
+                @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="card"><i
+                            class="bi bi-cart-plus-fill"></i>[{{ \App\Models\Card::where('id_user', Auth::user()->id)->count() }}]
+                    </a>
+                </li>
+                <li class="nav-item">
+                <li class="nav-item">
+                    <a class="nav-link" href="logout">Logout</a>
+                </li>
+                </li>
+                @else
+
+                <li class="nav-item">
+                    <a class="nav-link" href="login">Login</a>
+                </li>
+                @endauth
+
+
+                @endif
                 @else
                 <li class="nav-item active">
                     <a class="nav-link" href="home">Home</a>
@@ -40,23 +80,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact">Contact</a>
                 </li>
-                @auth
-                <li class="nav-item">
-                    <a class="nav-link" href="card"><i class="bi bi-cart-plus-fill"></i>[{{$count}}]</a>
-                </li>
-                <li class="nav-item">
-                <li class="nav-item">
-                    <a class="nav-link" href="logout">Logout</a>
-                </li>
-                </li>
-                @else
-
                 <li class="nav-item">
                     <a class="nav-link" href="login">Login</a>
                 </li>
-                @endauth
-
-
+                <li class="nav-item">
+                    <a class="nav-link" href="register">Register</a>
+                </li>
                 @endif
             </ul>
         </div>

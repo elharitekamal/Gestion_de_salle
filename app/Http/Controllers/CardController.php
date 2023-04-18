@@ -18,6 +18,7 @@ class CardController extends Controller
             $user = auth()->user();
             $card = new Card;
             $card->phone = $user->phone;
+            $card->id_user = $user->id;
             $card->adress = $user->adress;
             $card->product_name = $meal->name;
             $p = $meal->price;

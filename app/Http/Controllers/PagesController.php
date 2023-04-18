@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Abonnements;
 use App\Models\Meals;
 use App\Models\Offers;
 use App\Models\Card;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
+
     public function register()
     {
         return view('register');
@@ -22,33 +24,29 @@ class PagesController extends Controller
     }
     public function home()
     {
-        $user = auth()->user();
-        $count = Card::Where('phone', $user->phone)->count();
-        return view('home', ['count' => $count]);
+
+        return view('home');
     }
 
     public function about()
     {
-        $user = auth()->user();
-        $count = Card::Where('phone', $user->phone)->count();
-        return view('about', ['count' => $count]);
+
+        return view('about');
     }
 
     public function meals()
     {
-        $user = auth()->user();
-        $count = Card::Where('phone', $user->phone)->count();
+
         $meals = Meals::all();
-        return view('meals', ['meals' => $meals], ['count' => $count]);
+        return view('meals', ['meals' => $meals]);
     }
 
     public function editmeal($id)
     {
-        $user = auth()->user();
-        $count = Card::Where('phone', $user->phone)->count();
+
         $catmeals = Catmeals::all();
         $meals = Meals::where('id', $id)->get();
-        return view('editmeal', ['meals' => $meals, 'catmeals' => $catmeals], ['count' => $count]);
+        return view('editmeal', ['meals' => $meals, 'catmeals' => $catmeals]);
     }
 
     public function editoffer($id)
@@ -69,19 +67,17 @@ class PagesController extends Controller
 
     public function offers()
     {
-        $user = auth()->user();
-        $count = Card::Where('phone', $user->phone)->count();
+
         $offers = Offers::all();
-        return view('offers', ['offers' => $offers], ['count' => $count]);
+        return view('offers', ['offers' => $offers]);
     }
 
     public function card()
     {
         $user = auth()->user();
-        $total = Card::Where('phone', $user->phone)->sum('price');
-        $prods = Card::Where('phone', $user->phone)->get();
-        $count = Card::Where('phone', $user->phone)->count();
-        return view('card', ['count' => $count, 'prods' => $prods, 'total' => $total]);
+        $total = Card::Where('id_user', $user->id)->sum('price');
+        $prods = Card::Where('id_user', $user->id)->get();
+        return view('card', ['prods' => $prods, 'total' => $total]);
 
 
     }
@@ -90,6 +86,16 @@ class PagesController extends Controller
     {
         $orders = Orders::all();
         return view('orders', ['orders' => $orders]);
+    }
+
+    public function abonnement()
+    {
+        $abonnements = Abonnements::all();
+        return view('abonnement', ['abonnements' => $abonnements]);
+    }
+    public function profil()
+    {
+        return view('profil');
     }
 
 }

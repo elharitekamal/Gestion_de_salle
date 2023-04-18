@@ -32,7 +32,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col col-sm-3 col-xs-12">
-                                <h4 class="title">Orders</h4>
+                                <h4 class="title">Abonnements</h4>
                             </div>
                             <div class="col-sm-9 col-xs-12 text-right">
 
@@ -43,29 +43,29 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Product name</th>
-                                    <th>Phone</th>
-                                    <th>Adress</th>
-                                    <th>Quantity</th>
+                                    <th>User Name</th>
+                                    <th>Category</th>
                                     <th>Price</th>
-                                    <th>Ordered At</th>
+                                    <th>Duration</th>
+                                    <th>Description</th>
+                                    <th>Started At</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($orders as $order)
+                                @foreach($abonnements as $abonnement)
                                 <tr>
 
-                                    <td>{{$order->product_name}}</td>
-                                    <td>{{$order->phone}}</td>
-                                    <td>{{$order->adress}}</td>
-                                    <td>{{$order->quantity}}</td>
-                                    <td>{{$order->price}}$</td>
-                                    <td>{{$order->created_at}}</td>
+                                    <td>{{$abonnement->name_user}}</td>
+                                    <td>{{$abonnement->category}}</td>
+                                    <td>{{$abonnement->price}}$</td>
+                                    <td>{{$abonnement->duration}}</td>
+                                    <td>{{$abonnement->description}}</td>
+                                    <td>{{$abonnement->created_at}}</td>
                                     <td>
                                         <ul class="action-list">
                                             <li><a href="" data-tip="edit"><i class="fa fa-edit"></i></a></li>
-                                            <li><a href="deleteorder/{{$order->id}}" data-tip="delete"><i
+                                            <li><a href="deleteorder/{{$abonnement->id}}" data-tip="delete"><i
                                                         class="fa fa-trash"></i></a></li>
                                         </ul>
                                     </td>

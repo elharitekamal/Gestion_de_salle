@@ -53,21 +53,24 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($orders as $order)
                                 <tr>
 
-                                    <td>Vincent Williamson</td>
-                                    <td>31</td>
-                                    <td>iOS Developer</td>
-                                    <td>Sinaai-Waas</td>
-                                    <td>Sinaai-Waas</td>
-                                    <td>Sinaai-Waas</td>
+                                    <td>{{$order->product_name}}</td>
+                                    <td>{{$order->phone}}</td>
+                                    <td>{{$order->adress}}</td>
+                                    <td>{{$order->quantity}}</td>
+                                    <td>{{$order->price}}$</td>
+                                    <td>{{$order->created_at}}</td>
                                     <td>
                                         <ul class="action-list">
-                                            <li><a href="#" data-tip="edit"><i class="fa fa-edit"></i></a></li>
-                                            <li><a href="#" data-tip="delete"><i class="fa fa-trash"></i></a></li>
+                                            <li><a href="" data-tip="edit"><i class="fa fa-edit"></i></a></li>
+                                            <li><a href="deleteorder/{{$order->id}}" data-tip="delete"><i
+                                                        class="fa fa-trash"></i></a></li>
                                         </ul>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

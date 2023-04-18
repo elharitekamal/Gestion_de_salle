@@ -49,6 +49,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::GET('deletemeal/{id}', [MealsController::class, 'deletemeal']);
     Route::post('updatemeal/{id}', [MealsController::class, 'updatemeal']);
     Route::post('updateoffer/{id}', [OffersController::class, 'updateoffer']);
+    Route::GET('deleteorder/{id}', [MealsController::class, 'deleteorder']);
 
 });
 

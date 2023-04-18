@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Orders;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -79,6 +80,16 @@ class MealsController extends Controller
         $cat = Catmeals::find($id);
         $cat->delete();
         return redirect('dash');
+
+
+    }
+
+    public function deleteorder($id)
+    {
+
+        $order = Orders::find($id);
+        $order->delete();
+        return redirect('orders');
 
 
     }
